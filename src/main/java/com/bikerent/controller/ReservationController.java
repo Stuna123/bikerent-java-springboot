@@ -92,16 +92,4 @@ public class ReservationController {
 
         return "reservations";
     }
-
-    @GetMapping("/make-admin")
-    @ResponseBody
-    public String makeAdmin() {
-        User user = userRepository.findByEmail("ftabora@test.com")
-                .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
-
-        user.setRole(Role.ADMIN);
-        userRepository.save(user);
-
-        return "Tu es maintenant ADMIN";
-    }
 }
