@@ -75,9 +75,11 @@
                         </div>
 
                         <!-- Formulaire -->
-                        <form th:action="@{/reserve/{id}(id=${bike.id})}"
+                        <form th:action="@{/reserve}"
                               th:object="${reservation}"
                               method="post">
+
+                            <input type="hidden" name="bikeId" th:value="${bike.id}">
 
                             <!-- Date début -->
                             <div class="mb-3">
