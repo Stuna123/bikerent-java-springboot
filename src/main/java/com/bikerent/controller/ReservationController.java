@@ -1,10 +1,8 @@
 // Controller qui gère l'affichage et l'enregistrement des réservations
 package com.bikerent.controller;
 
-import com.bikerent.entity.Bike;
-import com.bikerent.entity.User;
+import com.bikerent.entity.*;
 import com.bikerent.repository.UserRepository;
-import com.bikerent.entity.Reservation;
 import com.bikerent.service.BikeService;
 import com.bikerent.service.ReservationService;
 import org.springframework.stereotype.Controller;
@@ -14,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import com.bikerent.entity.ReservationStatus;
 
 @Controller
 public class ReservationController {
@@ -94,5 +91,17 @@ public class ReservationController {
         model.addAttribute("reservations", reservationService.getReservationsByUserEmail(email));
 
         return "reservations";
+    }
+
+    @GetMapping("/make-admin")
+    @ResponseBody
+    public String makeAdmin() {
+        User user = userRepository.findByEmail("ftabora@test.com")
+                .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
+
+        user.setRole(Role.ADMIN);
+        userRepository.save(user);
+
+        return "Tu es maintenant ADMIN";
     }
 }
