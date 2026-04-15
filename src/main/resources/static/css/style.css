@@ -1,0 +1,282 @@
+body {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #ffffff, #eef4ff);
+    padding: 80px 0;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.feature-card,
+.testimonial-card,
+.time-slot-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    height: 100%;
+}
+
+.carousel-inner img {
+    height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.contact-section {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+footer {
+    background-color: #111827;
+    color: white;
+    padding: 40px 0;
+}
+
+footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Boutons en colonne */
+    .d-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .container, .d-flex {
+        gap: 10px;
+    }
+    /* Cards vélos */
+    .card img {
+        height: 180px !important;
+    }
+
+    /** Formulaire */
+    form .col-md-5, form .col-md-3 {
+        width: 100%;
+    }
+}
+
+/* Responsive tablette */
+@media (max-width: 990px) {
+    .card img {
+        height: 200px !important;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* Theme : Clair / Sombre */
+
+/* Mode clair */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Mode sombre */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/* Titres et textes en mode sombre */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode strong,
+body.dark-mode li,
+body.dark-mode a {
+    color: #f1f1f1 !important;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+    background-color: #1b1b1b !important;
+}
+
+body.dark-mode .navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+/* Sections */
+body.dark-mode .hero-section {
+    background: #181818 !important;
+}
+
+body.dark-mode .section-soft {
+    background-color: #181818 !important;
+}
+
+/* Cartes */
+body.dark-mode .card,
+body.dark-mode .custom-card,
+body.dark-mode .contact-box {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .card-footer {
+    background-color: #1e1e1e !important;
+    border-top: 1px solid #333 !important;
+}
+
+/* Formulaires */
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode textarea,
+body.dark-mode input {
+    background-color: #222 !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #555 !important;
+}
+
+body.dark-mode .form-control::placeholder,
+body.dark-mode textarea::placeholder,
+body.dark-mode input::placeholder {
+    color: #bdbdbd !important;
+}
+
+body.dark-mode .form-select option {
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+/* Footer */
+body.dark-mode .footer-custom {
+    background-color: #060d1f !important;
+}
+
+.footer-custom {
+    background-color: #07122b;
+}
+
+.footer-link {
+    color: #dce6ff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Texte utilisateur */
+body.dark-mode #userStatus {
+    color: #f1f1f1 !important;
+}
+
+/* Alert succès */
+body.dark-mode .alert-success {
+    background-color: #1f5133;
+    color: #d1f5df;
+    border-color: #2d6a45;
+}
+
+/* Tableau sombre */
+body.dark-mode .table {
+    --bs-table-bg: #1e1e1e;
+    --bs-table-color: #f1f1f1;
+    --bs-table-border-color: #333;
+}
+
+body.dark-mode .table-dark {
+    --bs-table-bg: #000;
+    --bs-table-color: #fff;
+}
+
+/* Carrousel */
+.carousel-custom-image {
+    height: 440px;
+    object-fit: cover;
+}
+
+/* Hero image */
+.hero-image {
+    max-height: 420px;
+    object-fit: cover;
+}
+
+/* Cards générales */
+.custom-card {
+    border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .carousel-custom-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .carousel-custom-image {
+        height: 250px;
+    }
+
+    .hero-image {
+        max-height: 280px;
+    }
+}
