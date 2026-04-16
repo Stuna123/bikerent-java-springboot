@@ -18,6 +18,14 @@ body {
     color: #555;
 }
 
+li a {
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #eadede;
+}
+
 .section-title {
     font-size: 2rem;
     font-weight: 700;
