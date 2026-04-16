@@ -1,3 +1,7 @@
+* {
+    text-decoration: none !important;
+}
+
 body {
     background-color: #f8f9fa;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -16,14 +20,6 @@ body {
 .hero-text {
     font-size: 1.1rem;
     color: #555;
-}
-
-li a {
-    text-decoration: none;
-}
-
-li a:hover {
-    color: #eadede;
 }
 
 .section-title {
