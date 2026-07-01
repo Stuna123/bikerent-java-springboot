@@ -62,6 +62,7 @@
                                 <th>Type</th>
                                 <th>Prix / heure</th>
                                 <th>Disponible</th>
+                                <th class="text-end">Actions</th>
                             </tr>
                         </thead>
 
@@ -78,9 +79,9 @@
                                 </td>
                                 <td th:text="${bike.name}">Vélo urbain</td>
                                 <td th:text="${bike.type}">Ville</td>
-                                <td th:text="|${bike.hourlyPrice} + €|">5.00 €</td>
+                                <td th:text="|${bike.hourlyPrice} €|">5.00 €</td>
                                 <td>
-                                    <span th:if="{bike.available}" class="badge bg-success">
+                                    <span th:if="${bike.available}" class="badge bg-success">
                                         Oui
                                     </span>
 
@@ -90,14 +91,13 @@
                                 </td>
 
                                 <td class="text-end">
-                                    <a class="btn btn-wwarning btn-sm"
+                                    <a class="btn btn-warning btn-sm"
                                         th:href="@{/admin/bikes/edit/{id}(id=${bike.id})}">
                                         Modifier
                                     </a>
-                                    <a class="btn btn-wwarning btn-sm"
+                                    <a class="btn btn-danger btn-sm"
                                        th:href="@{/admin/bikes/delete/{id}(id=${bike.id})}"
-                                        onclick="return confirm('Voulez-vous vraiment supprimer ce vélo ?')"
-                                    >
+                                        onclick="return confirm('Voulez-vous vraiment supprimer ce vélo ?');">
                                         Supprimer
                                     </a>
                                 </td>
