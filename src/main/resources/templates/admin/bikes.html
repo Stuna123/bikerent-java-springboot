@@ -2,14 +2,129 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Test admin bikes</title>
+    <title>Gestion des vélos - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-    <h1>Page admin vélos</h1>
-    <ul>
-        <li th:each="bike: ${bikes}" th:text="${bike.name}">
-            Velo test
-        </li>
-    </ul>
+
+<body id="pageBody">
+    <!-- Navbar admin -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/admin/dashboard}">
+                BikeRent Admin
+            </a>
+
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-light btn-sm" th:href="@{/bikes}">
+                    Voir le site
+                </a>
+                <form th:action="@{/logout}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                        Déconnexion !
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <!-- Titre + bouton ajouter -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+            <div>
+                <h1 class="fw-bold mb-1">Gestion des vélos</h1>
+                <p class="text-muted mb-0">
+                    Consulter, ajouter, modifier ou supprimer les vélos du catalogue.
+                </p>
+            </div>
+
+            <a class="btn btn-primary" th:href="@{/admin/bikes/new}">
+                Ajouter un vélo
+            </a>
+        </div>
+
+        <!-- Tableau -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Prix / heure</th>
+                                <th>Disponible</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="bike : ${bikes}">
+                                <td th:text="${bike.id}">1</td>
+
+                                <td>
+                                    <img th:src="@{'/images/' + ${bike.imageName}}"
+                                         alt="Image velo"
+                                         class="rounded"
+                                         style="width: 80px; height: 55px; object-fit: cover;"
+                                    >
+                                </td>
+                                <td th:text="${bike.name}">Vélo urbain</td>
+                                <td th:text="${bike.type}">Ville</td>
+                                <td th:text="|${bike.hourlyPrice} + €|">5.00 €</td>
+                                <td>
+                                    <span th:if="{bike.available}" class="badge bg-success">
+                                        Oui
+                                    </span>
+
+                                    <span th:unless="${bike.available}" class="badge bg-danger">
+                                        Non
+                                    </span>
+                                </td>
+
+                                <td class="text-end">
+                                    <a class="btn btn-wwarning btn-sm"
+                                        th:href="@{/admin/bikes/edit/{id}(id=${bike.id})}">
+                                        Modifier
+                                    </a>
+                                    <a class="btn btn-wwarning btn-sm"
+                                       th:href="@{/admin/bikes/delete/{id}(id=${bike.id})}"
+                                        onclick="return confirm('Voulez-vous vraiment supprimer ce vélo ?')"
+                                    >
+                                        Supprimer
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div th:if="${#lists.isEmpty(bikes)}" class="alert alert-info mt-3">
+                Aucun vélo enregistré pour le moment.
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a class="btn btn-outline-secondary" th:href="@{/admin/dashboard}">
+                Retour au dashboard
+            </a>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script theme -->
+    <script th:src="@{/js/theme.js}"></script>
+
 </body>
 </html>
